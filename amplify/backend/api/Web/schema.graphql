@@ -1,5 +1,39 @@
-type UntitledModel @model @auth(rules: [{allow: public}]) {
+type Discount @model @auth(rules: [{allow: public}]) {
   id: ID!
-  untitledfield: String
-  untitledfield2: String
+  name: String
+  desc: String
+  discount_percent: Float
+  active: Boolean
+  created_at: AWSDateTime
+  modified_at: AWSDateTime
+  Products: [Product] @hasMany(indexName: "byDiscount", fields: ["id"])
 }
+
+type ProductInventory @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  quanlity: Int
+  created_at: AWSDateTime
+  modified_at: AWSDateTime
+  Product: Product @hasOne
+}
+
+type ProductCategory @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  desc: String
+  created_at: AWSDateTime
+  modified_at: AWSDateTime
+  Products: [Product] @hasMany(indexName: "byProductCategory", fields: ["id"])
+}
+
+type Product @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  desc: String
+  price: Float
+  created_at: AWSDateTime
+  modified_at: AWSDateTime
+  productcategoryID: ID! @index(name: "byProductCategory")
+  discountID: ID! @index(name: "byDiscount")
+}
+ 
