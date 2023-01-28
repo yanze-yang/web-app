@@ -2,6 +2,7 @@ import styles from "./index.module.css";
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import NewForm1 from "../ui-components/NewForm1";
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <NewForm1 />
         <div className={styles.container}>
           <h1 className={styles.title}>
             Create <span className={styles.pinkSpan}>T3</span> App

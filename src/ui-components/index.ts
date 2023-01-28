@@ -5,5 +5,5 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
-export { default as UntitledModelCreateForm } from "./UntitledModelCreateForm";
+export { default as NewForm1 } from "./NewForm1";
 export { default as UntitledModelUpdateForm } from "./UntitledModelUpdateForm";
